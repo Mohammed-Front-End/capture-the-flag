@@ -355,7 +355,7 @@
                     type: "basicText",
                     color: "#008c23",
                     prefixColor: "#008c23",
-                    content: "-!- friend_ [friend_@" + USER_IP + "] has joined #fsociety.",
+                    content: "-!- friend_ [friend_@" + + "] has joined #fsociety.",
                     delay: 1e3
                 }, {
                     type: "basicText",
