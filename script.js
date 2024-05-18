@@ -57,7 +57,7 @@ let jsontext = JSON.stringify([{
 
 let typed = new Typed('#typed', {
   strings: [jsontext],
-  typeSpeed: 35,
+  typeSpeed: 8,
   startDelay: 500,
   backDelay: 1000,
   backSpeed: 35,
@@ -65,8 +65,16 @@ let typed = new Typed('#typed', {
   loop: false,
   loopCount: 2,
   // showCursor: false
-  cursorChar: '...'
+  cursorChar: '...',
+  onComplete: function() {
+    window.location.replace("./pageLogin/log.html");
+  }
 });
+
+
+
+
+
 
 
 /*
