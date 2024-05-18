@@ -114,6 +114,7 @@ let jsontext = JSON.stringify([
     }
   }
 ]);
+let typedText = document.querySelector('.typed')
 
 let typed = new Typed('#typed', {
   strings: [jsontext],
@@ -126,14 +127,19 @@ let typed = new Typed('#typed', {
   loopCount: 2,
   // showCursor: false
   cursorChar: '...',
+
   onComplete: function() {
     setTimeout(function() {
-      window.location.replace("./LoginPage/log.html");
-    }, 2000); // 2 seconds delay before redirection
+
+      typedText.innerHTML = 'Medo'
+
+    }, 2000);
   }
+
 });
 
 
+console.log(typed);
 
 
 

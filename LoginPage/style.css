@@ -17,6 +17,7 @@ body {
   z-index: 7;
 }
 .main{
+  position: relative;
   min-height: 100vh;
   padding:20px ;
   background: url(/img/wp2634867.webp) no-repeat center center #000000;
@@ -53,13 +54,20 @@ section h2{
 #login-form input[type="password"] {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
   box-sizing: border-box; 
+  margin-bottom: 20px;
 }
-
+#login-form span{
+  display: none;
+}
+.showSpan{
+  color: red;
+  margin-bottom: 15px;
+  display: block;
+}
 #login-form button[type="submit"] {
   width: 100%;
   padding: 10px;

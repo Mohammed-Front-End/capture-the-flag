@@ -14,3 +14,13 @@ section {
   width: 50%;
   color: #06e306;
 }
+
+.text__editor { 
+  background: #000;
+  width: 60%;
+  padding: 15px 15px 100px;
+  border-radius: 8px;
+  border-top: 20px solid #e8e8e8;
+}
+.text__editor .text__body {font-size: 24px; color: #fff;}
+.typed-cursor {color: #fff;} 
