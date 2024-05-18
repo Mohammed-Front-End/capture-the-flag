@@ -12,6 +12,75 @@ body {
 }
 
 
+.section{
+  width: 400px;
+  height: 400px;
+  background-color: #eaeef14a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+/* Style the form container */
+#login-form {
+  width: 300px;
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px;
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #ffffff67; /* Light background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
 
+/* Style the labels */
+#login-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold; /* Make labels bold */
+}
 
+/* Style the input fields */
+#login-form input[type="text"],
+#login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
+}
+
+/* Style the submit button */
+#login-form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #222422; /* Green background */
+  color: white; /* White text */
+  font-size: 16px;
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Add a hover effect for the submit button */
+#login-form button[type="submit"]:hover {
+  background-color: #000000; /* Darker green on hover */
+}
+
+#register-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF; /* Blue background */
+  color: white; /* White text */
+  font-size: 16px;
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 10px; /* Margin to separate from login button */
+}
+
+/* Add a hover effect for the register button */
+#register-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
