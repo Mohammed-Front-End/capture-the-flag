@@ -118,10 +118,10 @@ let typedText = document.querySelector('.typed')
 
 let typed = new Typed('#typed', {
   strings: [jsontext],
-  typeSpeed: 2,
+  typeSpeed: 1,
+  backSpeed: 1,
   startDelay: 500,
   backDelay: 1000,
-  backSpeed: 20,
   fadeOut: true,
   loop: false,
   loopCount: 2,
@@ -129,20 +129,94 @@ let typed = new Typed('#typed', {
   cursorChar: '...',
 
   onComplete: function() {
+
     setTimeout(function() {
 
-      typedText.innerHTML = 'Medo'
+      initializeQuiz()
 
     }, 2000);
+
   }
 
 });
 
 
-console.log(typed);
 
 
 
+
+
+function initializeQuiz() {
+  const questions = [
+    {
+      question: "What is the capital of France?",
+      answer: "Paris"
+    },
+    {
+      question: "What is 2 + 2?",
+      answer: "4"
+    },
+    {
+      question: "What is the color of the sky?",
+      answer: "blue"
+    }
+  ];
+
+  let currentQuestionIndex = 0;
+  const quizSection = document.getElementById("quiz-section");
+
+  // Function to create and display a question
+  function displayQuestion(index) {
+    quizSection.innerHTML = ""; // Clear previous content
+
+    if (index < questions.length) {
+      const questionObj = questions[index];
+
+      const questionDiv = document.createElement("div");
+      questionDiv.classList.add("question-div");
+
+      const questionLabel = document.createElement("label");
+      questionLabel.textContent = questionObj.question;
+      questionLabel.setAttribute("for", `question-${index}`);
+
+      const questionInput = document.createElement("input");
+      questionInput.setAttribute("type", "text");
+      questionInput.setAttribute("id", `question-${index}`);
+      questionInput.setAttribute("name", `question-${index}`);
+      questionInput.setAttribute("class", `answer`);
+
+      questionInput.focus()
+      const submitButton = document.createElement("button");
+      submitButton.textContent = "Submit";
+      submitButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        checkAnswer(index, questionInput.value);
+      });
+
+      document.body.insertBefore(questionLabel, quizSection);
+      questionDiv.appendChild(questionInput);
+      questionDiv.appendChild(submitButton);
+
+      quizSection.appendChild(questionDiv);
+    } else {
+      // All questions answered
+      quizSection.innerHTML = "<p>Congratulations! You've completed the quiz.</p>";
+    }
+  }
+
+  // Function to check the answer
+  function checkAnswer(index, answer) {
+    if (answer.toLowerCase() === questions[index].answer.toLowerCase()) {
+      currentQuestionIndex++;
+      displayQuestion(currentQuestionIndex);
+    } else {
+      alert("Incorrect answer. Try again.");
+    }
+  }
+
+  // Display the first question
+  displayQuestion(currentQuestionIndex);
+}
 
 
 /*

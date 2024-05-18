@@ -117,10 +117,10 @@ let jsontext = JSON.stringify([
 
 let typed = new Typed('#typed', {
   strings: [jsontext],
-  typeSpeed: 2,
+  typeSpeed: 1,
   startDelay: 500,
   backDelay: 1000,
-  backSpeed: 20,
+  backSpeed: 10,
   fadeOut: true,
   loop: false,
   loopCount: 2,
