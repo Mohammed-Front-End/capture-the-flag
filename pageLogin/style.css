@@ -3,44 +3,52 @@
   margin: 0;
 }
 body {
-  font-family: "RobotoCondensed",system-ui;
+  font-family: system-ui;
+  overflow: hidden;
+  position: relative;
+}
+.loading-text{
+  position: absolute;
+  font-size: 50px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 7;
+}
+.main{
   min-height: 100vh;
   padding:20px ;
   background: url(/img/wp2634867.webp) no-repeat center center #000000;
   color: #fff;
   text-shadow: 0px 0px 10px #949494;
+  z-index: -1;
+  filter: blur(70px);
 }
 
-
-.section{
-  width: 400px;
-  height: 400px;
-  background-color: #eaeef14a;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+section{
+  margin: 20px 0;
 }
-
-/* Style the form container */
+section h2{
+  text-align: center;
+  margin-bottom: 15px;
+}
 #login-form {
   width: 300px;
-  margin: 0 auto; /* Center the form horizontally */
+  margin: 0 auto; 
   padding: 20px;
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 10px; /* Rounded corners */
-  background-color: #ffffff67; /* Light background */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border: 1px solid #ccc;
+  border-radius: 10px; 
+  background-color: #ffffff67; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
-/* Style the labels */
 #login-form label {
   display: block;
   margin-bottom: 8px;
-  font-weight: bold; /* Make labels bold */
+  font-weight: bold;
 }
 
-/* Style the input fields */
 #login-form input[type="text"],
 #login-form input[type="password"] {
   width: 100%;
@@ -48,24 +56,23 @@ body {
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box; /* Ensure padding and border are included in the element's total width */
+  outline: none;
+  box-sizing: border-box; 
 }
 
-/* Style the submit button */
 #login-form button[type="submit"] {
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #222422; /* Green background */
-  color: white; /* White text */
+  background-color: #222422; 
+  color: white; 
   font-size: 16px;
-  cursor: pointer; /* Pointer cursor on hover */
+  cursor: pointer; 
 }
 
-/* Add a hover effect for the submit button */
 #login-form button[type="submit"]:hover {
-  background-color: #000000; /* Darker green on hover */
+  background-color: #000000; 
 }
 
 #register-btn {
@@ -73,14 +80,13 @@ body {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #007BFF; /* Blue background */
-  color: white; /* White text */
+  background-color: #007BFF; 
+  color: white; 
   font-size: 16px;
-  cursor: pointer; /* Pointer cursor on hover */
-  margin-top: 10px; /* Margin to separate from login button */
+  cursor: pointer; 
+  margin-top: 10px;
 }
 
-/* Add a hover effect for the register button */
 #register-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; 
 }
