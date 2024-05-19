@@ -119,7 +119,7 @@ let typedText = document.querySelector('.typed')
 
 function textTyping(e, text, i = 0) {
   if (i < text.length) {
-    e.textContent = `${text.slice(0, i + 1)} ...`;
+    e.textContent = `$ ${text.slice(0, i + 1)} ...`;
     setTimeout(() => textTyping(e, text, i + 1), 1);
   } else {
     // Text typing is complete, start the quiz after a 2-second delay
@@ -178,60 +178,60 @@ function initializeQuiz() {
     }
   ];
 
-  let currentQuestionIndex = 0;
-  const quizSection = document.getElementById("quiz-section");
+let currentQuestionIndex = 0;
+const quizSection = document.getElementById("quiz-section");
 
-  // Function to create and display a question
-  function displayQuestion(index) {
-    quizSection.innerHTML = ""; // Clear previous content
+// Function to create and display a question
+function displayQuestion(index) {
+  quizSection.innerHTML = ""; // Clear previous content
 
-    if (index < questions.length) {
-      const questionObj = questions[index];
+  if (index < questions.length) {
+    const questionObj = questions[index];
 
-      const questionDiv = document.createElement("div");
-      questionDiv.classList.add("question-div");
+    const questionDiv = document.createElement("div");
+    questionDiv.classList.add("question-div");
 
-      const questionLabel = document.createElement("label");
-      questionLabel.textContent = questionObj.question;
-      questionLabel.setAttribute("for", `question-${index}`);
+    const questionLabel = document.createElement("label");
+    questionLabel.textContent = questionObj.question;
+    questionLabel.setAttribute("for", `question-${index}`);
 
-      const questionInput = document.createElement("input");
-      questionInput.setAttribute("type", "text");
-      questionInput.setAttribute("id", `question-${index}`);
-      questionInput.setAttribute("name", `question-${index}`);
-      questionInput.setAttribute("class", `answer`);
+    const questionInput = document.createElement("input");
+    questionInput.setAttribute("type", "text");
+    questionInput.setAttribute("id", `question-${index}`);
+    questionInput.setAttribute("name", `question-${index}`);
+    questionInput.setAttribute("class", `answer`);
 
-      questionInput.focus()
-      const submitButton = document.createElement("button");
-      submitButton.textContent = "Submit";
-      submitButton.addEventListener("click", function(event) {
-        event.preventDefault();
-        checkAnswer(index, questionInput.value);
-      });
+    questionInput.focus()
+    const submitButton = document.createElement("button");
+    submitButton.textContent = "Submit";
+    submitButton.addEventListener("click", function(event) {
+      event.preventDefault();
+      checkAnswer(index, questionInput.value);
+    });
 
-      document.body.insertBefore(questionLabel, quizSection);
-      questionDiv.appendChild(questionInput);
-      questionDiv.appendChild(submitButton);
+    document.body.insertBefore(questionLabel, quizSection);
+    questionDiv.appendChild(questionInput);
+    questionDiv.appendChild(submitButton);
 
-      quizSection.appendChild(questionDiv);
-    } else {
+    quizSection.appendChild(questionDiv);
+  } else {
       // All questions answered
       quizSection.innerHTML = "<p>Congratulations! You've completed the quiz.</p>";
     }
   }
 
-  // Function to check the answer
-  function checkAnswer(index, answer) {
-    if (answer.toLowerCase() === questions[index].answer.toLowerCase()) {
-      currentQuestionIndex++;
-      displayQuestion(currentQuestionIndex);
-    } else {
-      alert("Incorrect answer. Try again.");
-    }
+// Function to check the answer
+function checkAnswer(index, answer) {
+  if (answer.toLowerCase() === questions[index].answer.toLowerCase()) {
+    currentQuestionIndex++;
+    displayQuestion(currentQuestionIndex);
+  } else {
+    alert("Incorrect answer. Try again.");
   }
+}
 
   // Display the first question
-  displayQuestion(currentQuestionIndex);
+displayQuestion(currentQuestionIndex);
 }
 
 

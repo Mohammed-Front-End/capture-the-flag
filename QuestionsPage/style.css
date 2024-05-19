@@ -3,7 +3,7 @@
   margin: 0;
 }
 body {
-  font-family: "RobotoCondensed",system-ui;
+  font-family: system-ui;
   min-height: 100vh;
   padding:20px ;
   background-color: #000000;
