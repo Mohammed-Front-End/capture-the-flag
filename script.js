@@ -114,7 +114,23 @@ let jsontext = JSON.stringify([
     }
   }
 ]);
+let typedText = document.querySelector('.typed')
 
+function textTyping(e, text, i = 0) {
+  if (i < text.length) {
+    e.textContent = `${text.slice(0, i + 1)} ...`;
+    setTimeout(() => textTyping(e, text, i + 1), 1);
+  } else {
+    // Text typing is complete, start the quiz after a 2-second delay
+    setTimeout(function() {
+      window.location.replace("./LoginPage/log.html");
+    }, 2000); // 2 seconds delay before redirection
+  }
+}
+textTyping(typedText, jsontext);
+
+/*
+textTyping(typedText, jsontext);
 let typed = new Typed('#typed', {
   strings: [jsontext],
   typeSpeed: 1,
@@ -132,27 +148,4 @@ let typed = new Typed('#typed', {
     }, 2000); // 2 seconds delay before redirection
   }
 });
-
-
-
-
-
-
-
-/*
-const typedtext = document.querySelector('.typed');
-
-function textTyping (e, text, i = 0 ){
-  e.textContent += text[i];
-  if(i === text.lenght - 1){
-    return;
-  }
-  setTimeout(()=> textTyping (e, text, i +1 ),50);
-}
-textTyping(typedtext,jsontext);
 */ 
-
-
-
-
-

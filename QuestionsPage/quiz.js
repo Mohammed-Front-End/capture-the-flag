@@ -116,6 +116,22 @@ let jsontext = JSON.stringify([
 ]);
 let typedText = document.querySelector('.typed')
 
+
+function textTyping(e, text, i = 0) {
+  if (i < text.length) {
+    e.textContent = `${text.slice(0, i + 1)} ...`;
+    setTimeout(() => textTyping(e, text, i + 1), 1);
+  } else {
+    // Text typing is complete, start the quiz after a 2-second delay
+    setTimeout(() => {
+      initializeQuiz();
+    }, 2000);
+  }
+}
+textTyping(typedText, jsontext);
+
+
+/*
 let typed = new Typed('#typed', {
   strings: [jsontext],
   typeSpeed: 1,
@@ -140,7 +156,7 @@ let typed = new Typed('#typed', {
 
 });
 
-
+*/ 
 
 
 
