@@ -20,7 +20,8 @@ body {
   position: relative;
   min-height: 100vh;
   padding:20px ;
-  background: url(/img/cryptic-abstract-shadow-man_out.webp) no-repeat center center #000000;
+  background: url(img/login-page.webp) no-repeat center center #000000;
+  background-size: cover;
   color: #fff;
   text-shadow: 0px 0px 10px #949494;
   z-index: -1;

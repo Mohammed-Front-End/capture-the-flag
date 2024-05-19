@@ -65,7 +65,7 @@ btnSubmit.addEventListener('click', function( e){
   const fakePassword = "pass";
 
   if (username === fakeUsername && password === fakePassword) {
-    window.location.replace("/QuestionsPage/quiz.html");
+    window.location.replace("/quiz/index.html");
   } else if (username !== "" && password !== "") {
     spanPass.innerHTML = "Incorrect username or password. Try again."
     spanPass.style.display = 'block'

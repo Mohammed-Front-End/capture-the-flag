@@ -123,7 +123,7 @@ function textTyping(e, text, i = 0) {
   } else {
     // Text typing is complete, start the quiz after a 2-second delay
     setTimeout(function() {
-      window.location.replace("./LoginPage/log.html");
+      window.location.replace("./LoginPage/index.html");
     }, 2000); // 2 seconds delay before redirection
   }
 }
