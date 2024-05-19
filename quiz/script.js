@@ -119,8 +119,8 @@ let typedText = document.querySelector('.typed')
 
 function textTyping(e, text, i = 0) {
   if (i < text.length) {
-    e.textContent = `$ ${text.slice(0, i + 3)} ...`;
-    setTimeout(() => textTyping(e, text, i + 3), 1);
+    e.textContent = `$ ${text.slice(0, i + 4)} ...`;
+    setTimeout(() => textTyping(e, text, i + 4), 1);
   } else {
     // Text typing is complete, start the quiz after a 2-second delay
     setTimeout(() => {
@@ -131,32 +131,7 @@ function textTyping(e, text, i = 0) {
 textTyping(typedText, jsontext);
 
 
-/*
-let typed = new Typed('#typed', {
-  strings: [jsontext],
-  typeSpeed: 1,
-  backSpeed: 1,
-  startDelay: 500,
-  backDelay: 1000,
-  fadeOut: true,
-  loop: false,
-  loopCount: 2,
-  // showCursor: false
-  cursorChar: '...',
 
-  onComplete: function() {
-
-    setTimeout(function() {
-
-      initializeQuiz()
-
-    }, 2000);
-
-  }
-
-});
-
-*/ 
 
 
 

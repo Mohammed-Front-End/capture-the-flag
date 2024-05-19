@@ -118,12 +118,12 @@ let typedText = document.querySelector('.typed')
 
 function textTyping(e, text, i = 0) {
   if (i < text.length) {
-    e.textContent = `$ ${text.slice(0, i + 3)} ...`;
-    setTimeout(() => textTyping(e, text, i + 3), 1);
+    e.textContent = `$ ${text.slice(0, i + 4)} ...`;
+    setTimeout(() => textTyping(e, text, i + 4), 1);
   } else {
     // Text typing is complete, start the quiz after a 2-second delay
     setTimeout(function() {
-      window.location.href ="/LoginPage/index.html";
+      window.location.href ="LoginPage/index.html";
     }, 2000); // 2 seconds delay before redirection
   }
 }
