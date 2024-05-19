@@ -114,7 +114,7 @@ let jsontext = JSON.stringify([
     }
   }
 ]);
-let typedText = document.querySelector('.typed')
+let typedText = document.querySelector('section')
 
 
 function textTyping(e, text, i = 0) {
@@ -185,6 +185,8 @@ function displayQuestion(index) {
     });
 
     document.body.insertBefore(questionLabel, quizSection);
+    document.body.style.alignItems = 'center';
+    document.body.style.justifyContent = 'center';
     questionDiv.appendChild(questionInput);
     questionDiv.appendChild(submitButton);
 
