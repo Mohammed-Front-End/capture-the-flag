@@ -1,4 +1,4 @@
-
+/*
 let jsontext = JSON.stringify([
   {
     "boot_process": {
@@ -114,21 +114,29 @@ let jsontext = JSON.stringify([
     }
   }
 ]);
-let typedText = document.querySelector('section')
+*/ 
 
+// Retrieve the username from localStorage
+const username = localStorage.getItem('username');
+// Ensure that the target element is ready
+const typedText = document.getElementById('typed');
 
 function textTyping(e, text, i = 0) {
   if (i < text.length) {
-    e.textContent = `$ ${text.slice(0, i + 4)} ...`;
+    e.textContent = `ssh  ${text.slice(0, i + 4)}@10.10.10.10`;
+    const success = document.createElement('span');
+    success.textContent = 'success';
+    success.classList.add('success');
+    e.appendChild(success);
     setTimeout(() => textTyping(e, text, i + 4), 1);
   } else {
     // Text typing is complete, start the quiz after a 2-second delay
     setTimeout(() => {
       initializeQuiz();
-    }, 2000);
+    }, 1000);
   }
 }
-textTyping(typedText, jsontext);
+textTyping(typedText, username);
 
 
 
@@ -154,11 +162,11 @@ function initializeQuiz() {
   ];
 
 let currentQuestionIndex = 0;
-const quizSection = document.getElementById("quiz-section");
+const quizSection = document.querySelector(".quiz-section");
 
-// Function to create and display a question
 function displayQuestion(index) {
   quizSection.innerHTML = ""; // Clear previous content
+  quizSection.classList.add("clearStyle");
 
   if (index < questions.length) {
     const questionObj = questions[index];
@@ -185,8 +193,8 @@ function displayQuestion(index) {
     });
 
     document.body.insertBefore(questionLabel, quizSection);
-    document.body.style.alignItems = 'center';
-    document.body.style.justifyContent = 'center';
+    // document.body.style.alignItems = 'center';
+    // document.body.style.justifyContent = 'center';
     questionDiv.appendChild(questionInput);
     questionDiv.appendChild(submitButton);
 
@@ -210,22 +218,4 @@ function checkAnswer(index, answer) {
   // Display the first question
 displayQuestion(currentQuestionIndex);
 }
-
-
-/*
-const typedtext = document.querySelector('.typed');
-
-function textTyping (e, text, i = 0 ){
-  e.textContent += text[i];
-  if(i === text.lenght - 1){
-    return;
-  }
-  setTimeout(()=> textTyping (e, text, i +1 ),50);
-}
-textTyping(typedtext,jsontext);
-*/ 
-
-
-
-
 
