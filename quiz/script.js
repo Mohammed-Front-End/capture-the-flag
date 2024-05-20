@@ -122,18 +122,25 @@ const username = localStorage.getItem('username');
 const typedText = document.getElementById('typed');
 
 function textTyping(e, text, i = 0) {
+  const ip = '@10.10.10.10';
   if (i < text.length) {
-    e.textContent = `ssh  ${text.slice(0, i + 4)}@10.10.10.10`;
-    const success = document.createElement('span');
-    success.textContent = 'success';
-    success.classList.add('success');
-    e.appendChild(success);
-    setTimeout(() => textTyping(e, text, i + 4), 1);
+    e.textContent = `ssh  ${text.slice(0, i + 1)}`;
+    setTimeout(() => textTyping(e, text, i + 1), 150);
+    
+  } else if (i < text.length + ip.length) {
+    e.textContent = `ssh ${text}${ip.slice(0, i - text.length + 1)}`;
+    setTimeout(() => textTyping(e, text, i + 1), 150);
   } else {
+    setTimeout(() => {
+      const success = document.createElement('span');
+      success.textContent = 'success';
+      success.classList.add('success');
+      e.appendChild(success)
+    }, 1500);
     // Text typing is complete, start the quiz after a 2-second delay
     setTimeout(() => {
       initializeQuiz();
-    }, 1000);
+    }, 3500);
   }
 }
 textTyping(typedText, username);
