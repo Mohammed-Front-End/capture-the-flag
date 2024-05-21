@@ -3,6 +3,7 @@
   margin: 0;
 }
 body {
+  position: relative;
   font-family: system-ui;
   min-height: 100vh;
   padding:20px ;
@@ -53,4 +54,16 @@ label{
   padding: 0;
   border: none;
   border-top: 20px solid #e8e8e8;
+}
+#logout-btn{
+  right: 0;
+  top: 0;
+  position: absolute;
+  padding: 5px;
+  margin: 9px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #06e306;
+  font-size: 18px;
 }
