@@ -1,30 +1,51 @@
 const username = localStorage.getItem('username');
 const typedText = document.getElementById('typed');
+const detectedOS = document.getElementById('detected-OS');
+const quizSection = document.querySelector('.quiz-section');
 
-console.time("concatenation")
 function textTyping(e, text, i = 0) {
   const ip = '@10.10.10.10';
+  const osName = ` Detected OS: ${getOSName()}`;
+  const successText = ' success';
   if (i < text.length) {
     e.textContent = `ssh  ${text.slice(0, i + 1)}`;
-    setTimeout(() => textTyping(e, text, i + 1), 200);
-    
+    setTimeout(() => textTyping(e, text, i + 1), 150);
   } else if (i < text.length + ip.length) {
     e.textContent = `ssh ${text}${ip.slice(0, i - text.length + 1)}`;
-    setTimeout(() => textTyping(e, text, i + 1), 200);
+    setTimeout(() => textTyping(e, text, i + 1), 150);
+  } else if (i < text.length + ip.length + osName.length) {
+    detectedOS.textContent = `${osName.slice(0, i - text.length - ip.length + 1)}`;
+    setTimeout(() => textTyping(e, text, i + 1), 150);
   } else {
     setTimeout(() => {
-      const success = document.createElement('span');
-      success.textContent = 'success';
-      success.classList.add('success');
-      e.appendChild(success)
-    }, 1100);
+      typeSuccess(e, successText);
+    }, 1500);
+  }
+}
+textTyping(typedText, username);
+
+function typeSuccess(e, text, i = 0) {
+  const success = document.querySelector('.success');
+  if (i < text.length) {
+    success.textContent = `${text.slice(0, i + 1)}`;
+    setTimeout(() => typeSuccess(e, text, i + 1), 150);
+  } else {
     setTimeout(() => {
       initializeQuiz();
     }, 3500);
   }
 }
-textTyping(typedText, username);
 
+function getOSName() {
+  let osName = "Not known";
+  if (navigator.userAgent.indexOf("Win") != -1) osName = "Windows OS";
+  if (navigator.userAgent.indexOf("Mac") != -1) osName = "MacOS";
+  if (navigator.userAgent.indexOf("X11") != -1) osName = "UNIX OS";
+  if (navigator.userAgent.indexOf("Linux") != -1) osName = "Linux OS";
+  if (navigator.userAgent.indexOf("Android") != -1) Name =  "Android OS"; 
+  if (navigator.userAgent.indexOf("iPhone") != -1) Name =  "iPhone OS"; 
+  return osName;
+}
 
 function initializeQuiz() {
   const questions = [
@@ -44,7 +65,6 @@ function initializeQuiz() {
 
 let currentQuestionIndex = 0;
 const quizSection = document.querySelector(".quiz-section");
-
 function displayQuestion(index) {
   quizSection.innerHTML = ""; // Clear previous content
   quizSection.classList.add("clearStyle");
@@ -107,6 +127,5 @@ function checkAnswer(index, answer) {
 displayQuestion(currentQuestionIndex);
 }
 
-console.timeEnd("concatenation")
 
 
